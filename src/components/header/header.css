@@ -1,0 +1,26 @@
+.header {
+    width: 100%;
+    margin-top: 30px;
+}
+.header__logo {
+    font-size: 60px;
+}
+.header__nav,
+.header__logo {
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.header__nav ul {
+    list-style: none;
+}
+.header__nav ul li {
+    display: inline-block;
+    margin-right: 30px;
+    transition: all .5s ease-in;
+}
+.header__nav ul li:hover {
+    cursor: pointer;
+    color: #00bc8c;
+}
