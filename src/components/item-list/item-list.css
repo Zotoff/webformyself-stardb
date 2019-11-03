@@ -1,0 +1,10 @@
+.item-list {
+    list-style: none;
+}
+.item-list li {
+    transition: all .5s ease-in;
+}
+.item-list li:hover {
+    cursor: pointer;
+    background-color: #222222;
+}

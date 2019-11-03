@@ -1,0 +1,18 @@
+.person-details__card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.person-details__image {
+    width: 300px;
+    height: 300px;
+}
+.person-details__image img {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+}
+.person-details__text {
+    width: 70%;
+    margin-left: 10px;
+}
