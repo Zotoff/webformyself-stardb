@@ -3,9 +3,13 @@ import Header from './components/header';
 import RandomPlanet from './components/random-planet';
 import ItemList from './components/item-list';
 import PersonDetails from './components/person-details';
+import SwapiService from './services/swapi-service';
 import './App.css';
 
 export default class App extends Component {
+
+  swapiService = new SwapiService();
+  
   state = {
     showRandomPlanet: true,
     selectedPerson: 5
@@ -30,6 +34,10 @@ export default class App extends Component {
      })
   }
 
+  renderItem = (item) => {
+    return item.name;
+  }
+
   render(){
 
     const random_planet = this.state.showRandomPlanet ? <RandomPlanet /> : null;
@@ -47,7 +55,23 @@ export default class App extends Component {
         <div className="container">
           <div className="row mb2">
             <div className="col-md-6">
-              <ItemList onItemSelected={this.onPersonSelected}/>
+              <ItemList 
+              onItemSelected={this.onPersonSelected} 
+              getData={this.swapiService.getAllPeople} 
+              renderItem={(item) => `${item.name}`}/>
+            </div>
+            <div className="col-md-6">
+              <PersonDetails personId={this.state.selectedPerson} />
+            </div>
+        </div>
+        </div>
+      </section>
+
+      <section className="person-details">
+        <div className="container">
+          <div className="row mb2">
+            <div className="col-md-6">
+              <ItemList onItemSelected={this.onPersonSelected} getData={this.swapiService.getAllPlanets}/>
             </div>
             <div className="col-md-6">
               <PersonDetails personId={this.state.selectedPerson} />
